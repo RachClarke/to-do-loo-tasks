@@ -1,5 +1,7 @@
 {
   "name": "to-do-loo-tasks",
   "private": true,
-  "dependencies": {}
+  "dependencies": {
+    "bootstrap": "^4.4.1"
+  }
 }
