@@ -6,3 +6,5 @@
     <li><%= link_to task.name, task_path(task) %> | <%= task.description %> | <%= task.deadline %> | priority: <%= task.priority %></li>
   <% end %>
 </ul>
+
+<p><%= link_to "Create a new task", new_task_path %></p>
