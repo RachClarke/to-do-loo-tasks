@@ -1,13 +1,21 @@
-<h1><%= @task.name %></h1>
+<div class="container">
+  <div class="row">
+    <div class="col-sm">
 
-<p>Description: <%= @task.description %></p>
-<p>Deadline: <%= @task.deadline %></p>
-<p>Priority: <%= @task.priority %></p>
-<p>Done: <%= @task.done %></p>
+    <h1><%= @task.name %></h1>
+
+    <p>Description: <%= @task.description %></p>
+    <p>Deadline: <%= @task.deadline %></p>
+    <p>Priority: <%= @task.priority %></p>
+    <p>Done: <%= @task.done %></p>
 
 
-<p><%= link_to "Edit this task", edit_task_path(@task) %> | <%= link_to "Delete this task",
-                                                                        task_path(@task),
-                                                                        method: :delete,
-                                                                        data: { confirm: "Are you sure?" } %></p>
-<p><%= link_to "Back to tasks", root_path %></p>
+    <p><%= link_to "Edit this task", edit_task_path(@task) %> | <%= link_to "Delete this task",
+                                                                            task_path(@task),
+                                                                            method: :delete,
+                                                                            data: { confirm: "Are you sure?" } %></p>
+    <p><%= link_to "Back to tasks", root_path %></p>
+
+    </div>
+  </div>
+</div>
