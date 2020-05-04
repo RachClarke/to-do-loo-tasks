@@ -1,6 +1,9 @@
 require 'test_helper'
 
 class ApplicationSystemTestCase < ActionDispatch::SystemTestCase
-  # driven_by :headless_chrome
-  driven_by :selenium, using: :chrome, screen_size: [1400, 1400]
+  # Runs chrome without opening up:
+  driven_by :headless_chrome
+
+  # Runs and opens chrome:
+  # driven_by :selenium, using: :chrome, screen_size: [1400, 1400]
 end

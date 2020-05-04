@@ -1,7 +1,7 @@
 require 'test_helper'
 require 'application_system_test_case'
 
-class TaskTest < ApplicationSystemTestCase
+class TasksTest < ApplicationSystemTestCase
   # include Warden::Test::Helpers
 
   test 'lets a signed in user create a task' do
