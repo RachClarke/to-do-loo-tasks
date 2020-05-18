@@ -1,27 +1,19 @@
 require 'test_helper'
 require 'application_system_test_case'
+require './test/helpers/create_task'
 
 class TasksTest < ApplicationSystemTestCase
   # include Warden::Test::Helpers
 
   test 'lets a signed in user create a task' do
-    login_as users(:Rory)
-
-    visit '/tasks/new'
-    fill_in 'Name', with: 'Feed the dog'
-
-    click_on 'Create Task'
+    log_in_and_create_task
 
     assert_equal root_path, page.current_path
     assert_text 'Feed the dog'
   end
 
   test 'lets a signed in user view a task' do
-    login_as users(:Rory)
-
-    visit '/tasks/new'
-    fill_in 'Name', with: 'Feed the dog'
-    click_on 'Create Task'
+    log_in_and_create_task
 
     visit '/'
 
@@ -30,11 +22,7 @@ class TasksTest < ApplicationSystemTestCase
   end
 
   test 'lets a signed in user edit a task' do
-    login_as users(:Rory)
-
-    visit '/tasks/new'
-    fill_in 'Name', with: 'Feed the dog'
-    click_on 'Create Task'
+    log_in_and_create_task
 
     visit '/'
 
@@ -48,11 +36,7 @@ class TasksTest < ApplicationSystemTestCase
   end
 
   test 'lets a signed in user delete a task' do
-    login_as users(:Rory)
-
-    visit '/tasks/new'
-    fill_in 'Name', with: 'Feed the dog'
-    click_on 'Create Task'
+    log_in_and_create_task
 
     visit '/'
 
