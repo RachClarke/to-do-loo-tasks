@@ -1,15 +1,40 @@
 <div class="container">
   <div class="row">
+
     <div class="col-sm">
 
-      <h1>Tasks</h1>
-
-
-      <ul>
-        <% @tasks.each do |task| %>
-          <li><%= link_to task.name, task_path(task) %> | <%= task.description %> | <%= task.deadline %> | priority: <%= task.priority %></li>
-        <% end %>
+      <ul class="nav nav-tabs" id="myTab" role="tablist">
+        <li class="nav-item">
+          <a class="nav-link active" id="todo-tab" data-toggle="tab" href="#todo" role="tab" aria-controls="todo" aria-selected="true">To-do</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" id="completed-tab" data-toggle="tab" href="#completed" role="tab" aria-controls="completed" aria-selected="false">Completed</a>
+        </li>
       </ul>
+      <div class="tab-content" id="myTabContent">
+        <div class="tab-pane fade show active" id="todo" role="tabpanel" aria-labelledby="todo-tab">
+          <h1>To-do:</h1>
+
+
+          <ul>
+            <% @tasks.each do |task| %>
+              <% unless task.done? %>
+                <li><%= link_to task.name, task_path(task) %> | <%= task.description %> | <%= task.deadline %> | priority: <%= task.priority %></li>
+              <% end %>
+            <% end %>
+          </ul>
+        </div>
+        <div class="tab-pane fade" id="completed" role="tabpanel" aria-labelledby="completed-tab">
+          <h1>Completed tasks:</h1>
+          <% @tasks.each do |task| %>
+            <% if task.done? %>
+              <li><%= link_to task.name, task_path(task) %> | <%= task.description %> | <%= task.deadline %> | priority: <%= task.priority %></li>
+            <% end %>
+          <% end %>
+        </div>
+      </div>
+
+
 
       <p><%= link_to "Create a new task", new_task_path %></p>
     </div>

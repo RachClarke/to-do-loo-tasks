@@ -9,6 +9,11 @@
     <p>Priority: <%= @task.priority %></p>
     <p>Done: <%= @task.done %></p>
 
+    <% if @task.done? %>
+      <p>Gif goes here!</p>
+      <img src="https://media.giphy.com/media/<%=@task.gif_id%>/giphy.gif" alt="">
+    <% end %>
+
 
     <p><%= link_to "Edit this task", edit_task_path(@task) %> | <%= link_to "Delete this task",
                                                                             task_path(@task),
