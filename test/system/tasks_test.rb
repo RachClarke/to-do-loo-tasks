@@ -48,4 +48,18 @@ class TasksTest < ApplicationSystemTestCase
 
     assert_equal root_path, page.current_path
   end
+
+  test 'rewards user with a gif when a task is completed' do
+    log_in_and_create_task
+
+    visit '/'
+
+    click_on 'Feed the dog'
+
+    click_on 'Edit this task'
+
+    check('Done')
+    click_on 'Update Task'
+    assert_selector 'img'
+  end
 end

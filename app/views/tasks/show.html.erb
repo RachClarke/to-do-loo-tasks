@@ -10,7 +10,6 @@
     <p>Done: <%= @task.done %></p>
 
     <% if @task.done? %>
-      <p>Gif goes here!</p>
       <img src="https://media.giphy.com/media/<%=@task.gif_id%>/giphy.gif" alt="">
     <% end %>
 
