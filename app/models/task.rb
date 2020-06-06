@@ -12,11 +12,19 @@ class Task < ApplicationRecord
     end
   end
 
+  private
+
   def set_gif_id
-    url = 'http://api.giphy.com/v1/gifs/random?api_key=8UMJv9dvAP1gQw3HVVbutU4suAhblZmc&limit=5'
+    tag = generate_tag
+    url = "https://api.giphy.com/v1/gifs/random?api_key=8UMJv9dvAP1gQw3HVVbutU4suAhblZmc&tag=#{tag}&rating=G"
     response = Net::HTTP.get_response(URI.parse(url))
     buffer = response.body
     result = JSON.parse(buffer)
-    self.gif_id = result["data"]["id"]
+    self.gif_id = result['data']['id']
+  end
+
+  def generate_tag
+    tags = ['well done', 'congrats', 'hero', 'winner', 'celebrate', 'puppies', 'cat', 'funny']
+    tags.sample
   end
 end
