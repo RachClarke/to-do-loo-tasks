@@ -1,3 +1,16 @@
-  @import "bootstrap/scss/bootstrap";
 
-  @import "components/index";
+@import "config/colors";
+
+@import "bootstrap/scss/bootstrap";
+
+@import "components/index";
+
+body {
+  font-family: 'Inconsolata', monospace;
+  background-color: #272727;
+
+  h1, p, .label {
+    color: #747474;
+  }
+}
+
