@@ -24,7 +24,13 @@
             <% @tasks.each do |task| %>
               <% unless task.done? %>
                 <%= link_to task_path(task), class: "task-card-a" do%>
-                  <div class="task-card priority-<%= task.priority %>">
+                  <div class="task-card priority-<%=if task.deadline.nil?
+                                                      task.priority
+                                                    elsif task.deadline <= Date.today
+                                                      1
+                                                    else
+                                                      task.priority
+                                                    end %>">
                    <p> <%= task.name%> </p>
                    <p> <%= task.description %> </p>
                    <p> <%= task.deadline %> </p>
@@ -38,7 +44,7 @@
 
         <div class="tab-pane fade" id="completed" role="tabpanel" aria-labelledby="completed-tab">
 
-          <% @tasks.each do |task| %>
+          <% @completed_tasks.each do |task| %>
             <% if task.done? %>
               <%= link_to task_path(task), class: "task-card-a" do%>
                 <div class="task-card priority-<%= task.priority %>">

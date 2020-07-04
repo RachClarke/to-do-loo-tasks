@@ -4,6 +4,7 @@ class TasksController < ApplicationController
 
   def index
     @tasks = Task.order(deadline: :asc, priority: :asc)
+    @completed_tasks = Task.order(updated_at: :desc)
   end
 
   def show
