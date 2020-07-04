@@ -3,7 +3,7 @@ class TasksController < ApplicationController
   before_action :authenticate_user!
 
   def index
-    @tasks = Task.all
+    @tasks = Task.order(deadline: :asc, priority: :asc)
   end
 
   def show
@@ -27,7 +27,9 @@ class TasksController < ApplicationController
 
   def update
     if @task.update(task_params)
+      # raise
       @task.save!
+      # raise
       redirect_to task_path(@task)
     else
       render :edit
@@ -46,6 +48,6 @@ class TasksController < ApplicationController
   end
 
   def task_params
-    params.require(:task).permit(:name, :description, :deadlilne, :priority, :done, :gif_id)
+    params.require(:task).permit(:name, :description, :deadline, :priority, :done, :gif_id)
   end
 end
