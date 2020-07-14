@@ -23,7 +23,7 @@
 
             <% @tasks.each do |task| %>
               <% unless task.done? %>
-                <%= link_to task_path(task), class: "task-card-a" do%>
+                <%= link_to task_path(task), remote: true, class: "task-card-a" do%>
                   <div class="task-card priority-<%=if task.deadline.nil?
                                                       task.priority
                                                     elsif task.deadline <= Date.today
@@ -46,7 +46,7 @@
 
           <% @completed_tasks.each do |task| %>
             <% if task.done? %>
-              <%= link_to task_path(task), class: "task-card-a" do%>
+              <%= link_to task_path(task), remote: true, class: "task-card-a" do%>
                 <div class="task-card priority-<%= task.priority %>">
                   <p> <%= task.name%> </p>
                   <p> <%= task.description %> </p>
@@ -62,3 +62,4 @@
     </div>
   </div>
 </div>
+<div id='task-content'></div>

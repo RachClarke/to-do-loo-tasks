@@ -8,6 +8,9 @@ class TasksController < ApplicationController
   end
 
   def show
+    respond_to do |format|
+      format.js
+    end
   end
 
   def new
@@ -28,10 +31,8 @@ class TasksController < ApplicationController
 
   def update
     if @task.update(task_params)
-      # raise
       @task.save!
-      # raise
-      redirect_to task_path(@task)
+      redirect_to root_path
     else
       render :edit
     end
