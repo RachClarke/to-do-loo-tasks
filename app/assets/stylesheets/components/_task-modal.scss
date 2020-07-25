@@ -2,4 +2,29 @@
   h1, p {
   color: #272727;
   }
+  a {
+    display: block;
+    width: auto;
+    color: #FFFFFF;
+    text-decoration: none;
+    border: 1px solid #272727;
+    border-radius: 8px;
+    padding: 4px 8px;
+    background-color: #272727;
+    text-align: center;
+  }
 }
+
+.task-details-and-actions {
+  display: flex;
+  justify-content: space-around;
+}
+
+.task-details-container {
+  width: 60%;
+}
+
+.task-actions-container {
+  width: 40%;
+}
+
