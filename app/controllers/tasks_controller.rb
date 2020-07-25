@@ -38,6 +38,7 @@ class TasksController < ApplicationController
   def update
     if @task.update(task_params)
       @task.save!
+      redirect_to root_path
     else
       render :edit
     end
