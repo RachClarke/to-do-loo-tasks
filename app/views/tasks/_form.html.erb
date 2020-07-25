@@ -1,7 +1,7 @@
 <%= simple_form_for(task) do |f| %>
 <%= f.input :name %>
 <%= f.input :description %>
-<%= f.input :deadline, as: :date %>
+<%= f.input :deadline, as: :date, include_blank: true %>
 <%= f.input :priority %>
 <%= f.input :done %>
 <%= f.submit %>
